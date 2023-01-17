@@ -71,24 +71,21 @@ With this app you can:
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-- install ruby on you pc
-- follow this installation [instruction](https://github.com/microverseinc/curriculum-ruby/blob/main/simple-ruby/articles/ruby_installation_instructions.md)
-- clone this repository
-- navigate to blog-rails folder
-- open the folder on your code editor
-
 ### Prerequisites
 
 In order to run this project you need: Ruby installed on your pc
 
 ### Setup
 
-Clone this repository to your desired folder:
+- Clone this repository to your desired folder:
 
 ```sh
-  cd my-folder
   git clone https://github.com/karayamanemre/blog-rails.git
 ```
+
+- Go to the repository folder you cloned.
+- Run `bundle install` on command line to install.
+- Write `rails s` to command line to start the app.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,6 +100,7 @@ Clone this repository to your desired folder:
 - LinkedIn: [Emre Karayaman](https://www.linkedin.com/in/emre-karayaman-a7b45b243/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 🔭 Future Features <a name="future-features"></a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
