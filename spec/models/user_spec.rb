@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'validates numericality of posts_counter' do
-    subject.PostsCounter = -1
+    subject.posts_counter = -1
     expect(subject).to_not be_valid
   end
 
