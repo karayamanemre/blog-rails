@@ -4,8 +4,10 @@ class Post < ApplicationRecord
   has_many :likes
   after_save :update_posts_counter
 
+  validates :Title, presence: true, length: { maximum: 250 }
+
   def update_posts_counter
-    author.update(posts_counter: author.posts_counter + 1)
+    author.update(PostsCounter: author.PostsCounter + 1)
   end
 
   def recent_5_comments
