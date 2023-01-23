@@ -87,6 +87,10 @@ In order to run this project you need: Ruby installed on your pc
 - Run `bundle install` on command line to install.
 - Write `rails s` to command line to start the app.
 
+### Run Tests
+
+- Run `rspec` on command line for tests.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
