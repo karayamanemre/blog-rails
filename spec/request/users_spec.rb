@@ -6,7 +6,7 @@ RSpec.describe 'Users', type: :request do
       get('/')
       expect(response).to have_http_status(:ok)
     end
-    it "is rendered index" do
+    it 'is rendered index' do
       get '/'
       expect(response).to render_template('index')
     end
