@@ -1,1 +1,23 @@
-<h1>A user profile</h1>
+<section class="user-profile-page">
+  <div class="user-container">
+    <img class="user-photo" src="<%= @user.Photo %>">
+    <div class= "user-infos">
+      <p class="user-name"><%= @user.Name %></p>
+      <p class="user-post-counter">Number of posts: <%= @user.posts_counter %></p>
+    </div>
+  </div>
+  <div class="user-bio">
+    <h2 class="bio-title">Bio</h2>
+    <p class="bio-info"><%=@user.Bio%> <br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, ligula ac accumsan posuere, est dolor posuere orci, nec iaculis neque lectus ut orci. Quisque sodales dui et rutrum egestas. Vivamus commodo, urna ut vehicula malesuada, sem elit mollis erat, ut placerat felis elit vitae purus. Praesent fringilla nulla vitae.</p>
+    </p>
+  </div>
+  <%@user.recent_3_posts.each do |post| %>
+  <div class="post-item">
+    <h2 class="post-title"><%=post.Title%></h2>
+    <p class="post-text"><%=post.Text%></p>
+    <p class="post-counters">Comments: <%=post.comments_counter || 0 %>, Likes: <%=post.likes_counter || 0 %></p>
+  </div>
+  <%end%>
+  <button class="all-posts-btn"><%= link_to "See all posts", "/users/#{@user.id}/posts"%></button>
+</section>
