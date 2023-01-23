@@ -30,6 +30,7 @@ img {
   align-items: center;
   padding: 25px;
   gap: 25px;
+  cursor: pointer;
   border-radius: 10px;
   border: 2px dotted #000;
 }

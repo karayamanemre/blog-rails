@@ -1,11 +1,11 @@
 <section class="user-list-page">
   <% @users.each do |user| %>
-  <div class="user-container">
-    <img class="user-photo" src="<%= user.Photo %>">
-    <div class= "user-infos">
-      <p class="user-name"><%= user.Name %></p>
-      <p class="user-post-counter">Number of posts: <%= user.posts_counter %></p>
+    <div class="user-container" onclick="window.location.href='/users/<%= user.id %>/'">
+      <img class="user-photo" src="<%= user.Photo %>">
+      <div class= "user-infos">
+        <p class="user-name"><%= user.Name %></p>
+        <p class="user-post-counter">Number of posts: <%= user.posts_counter %></p>
+      </div>
     </div>
-  </div>
-  <%end%>
+  <% end %>
 </section>
