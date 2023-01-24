@@ -17,6 +17,10 @@ img {
   max-width: 100%;
 }
 
+h3 {
+  padding: 10px 0;
+}
+
 .user-list-page,
 .user-profile-page,
 .post-list-page,
@@ -150,4 +154,11 @@ input {
 .btn {
   height: 50px;
   cursor: pointer;
+}
+
+.like-form,
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get '/comments/new', to: "comments#new"
   post '/comments/new', to: "comments#create"
   post '/likes/new', to: "likes#create"
+  resources :posts, only: [:show]
 end

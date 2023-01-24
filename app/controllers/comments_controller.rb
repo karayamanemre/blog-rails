@@ -1,15 +1,17 @@
 class CommentsController < ApplicationController
   def new
+    @post = Post.find(params[:post_id])
     @comment = Comment.new
   end
 
   def create
-    @comment = Comment.new(id: params[:id], author_id: current_user.id, text: params[:text])
+    @comment = Comment.new(post_id: params[:post_id], author_id: current_user.id, Text: params[:text])
     if @comment.save
-      redirect_to '#'
+      @comment.update_comments_counter
+      redirect_to post_path(params[:post_id])
     else
-      flash.now[:error] = "Error creating comment: #{@comment.errors.full_messages.join(", ")}"
-      render :new
+      flash[:error] = 'There is an error'
+      redirect_back(fallback_location: root_path)
     end
   end
 end

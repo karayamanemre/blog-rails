@@ -1,4 +1,5 @@
 <section class='post-page'>
+  <%= link_to "Back to Homepage", root_path, class: "btn" %>
   <div class='single-post'>
     <div class="post-top">
       <div class="post-header">
@@ -16,6 +17,26 @@
         <% @post.recent_5_comments.each do |comment| %>
         <i><%= comment.author.Name %>: <%= comment.Text %></i>
         <% end %>
+      <% end %>
+    </div>
+    <div>
+      <h3>Add a comment</h3>
+      <%= form_with model: @comment, url: comments_new_path do |form| %>
+        <div  class="comment-form">
+          <%= form.text_area :text%>
+          <%= form.hidden_field :author_id, value: @post.author.id %>
+          <%= form.hidden_field :post_id, value: @post.id %>
+          <%= form.submit "Post a Comment", class: "btn btn-primary" %>
+        </div> 
+      <% end %>
+    </div>
+    <div>
+      <h3>Like the post</h3>
+      <%= form_with model: @like, url: likes_new_path do |form| %>
+        <div class="like-form">
+          <%= form.hidden_field :post_id, value: @post.id %>
+          <%= form.submit "Give a Like", class: "btn btn-primary" %>
+        </div>
       <% end %>
     </div>
   </div>
