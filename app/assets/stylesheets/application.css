@@ -38,7 +38,8 @@ h3 {
   padding: 25px;
   gap: 25px;
   border-radius: 10px;
-  border: 2px dotted #000;
+  box-shadow: rgba(0, 0, 0, 0.9) 0px 2px 4px,
+    rgba(0, 0, 0, 0.9) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .user-photo {
@@ -72,8 +73,10 @@ h3 {
   padding: 25px;
   gap: 25px;
   border-radius: 10px;
-  border: 2px dotted #000;
+  border: 2px solid #000;
   background: #eee;
+  box-shadow: rgba(0, 0, 0, 0.7) 0px 2px 4px,
+    rgba(0, 0, 0, 0.7) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .post-item,
@@ -83,7 +86,8 @@ h3 {
   padding: 25px;
   gap: 25px;
   border-radius: 10px;
-  border: 2px dotted #000;
+  box-shadow: rgba(0, 0, 0, 0.9) 0px 2px 4px,
+    rgba(0, 0, 0, 0.9) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .post-card-top {
@@ -114,6 +118,8 @@ h3 {
 .single-post {
   padding: 15px;
   background: #eee;
+  box-shadow: rgba(0, 0, 0, 0.9) 0px 2px 4px,
+    rgba(0, 0, 0, 0.9) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .post-top {
