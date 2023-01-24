@@ -65,6 +65,8 @@ With this app you can:
 - Like the posts.
 - Comment on posts.
 
+## 🚀 Live Demo <a name="live-demo"></a>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
