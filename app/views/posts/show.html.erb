@@ -1,1 +1,22 @@
-<h1>A post from a specific user</h1>
+<section class='post-page'>
+  <div class='single-post'>
+    <div class="post-top">
+      <div class="post-header">
+        <h2><%= @post.Title %> <i>by</i> <%= @post.author.Name %></h2>
+        <p>Comments: <%= @post.comments_counter || 0 %> Likes: <%= @post.likes_counter || 0 %></p>
+      </div>
+      <p><%= @post.Text%> <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, ligula ac accumsan posuere, est dolor posuere orci, nec iaculis neque lectus ut orci. Quisque sodales dui et rutrum egestas. Vivamus commodo, urna ut vehicula malesuada, sem elit mollis erat, ut placerat felis elit vitae purus. Praesent fringilla nulla vitae.</p>
+  </p>
+    </div>
+    <div class="comments-container">
+      <h3>Comments</h3>
+      <% if @post.comments.any? %>
+        <% @post.recent_5_comments.each do |comment| %>
+        <i><%= comment.author.Name %>: <%= comment.Text %></i>
+      <% end %>
+      <% else %>
+        <p>No comments yet.</p>
+      <% end %>
+    </div>
+  </div>
+</section>

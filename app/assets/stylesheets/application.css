@@ -1,15 +1,124 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  font-family: Courier, sans-serif;
+  box-sizing: border-box;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.user-list-page,
+.user-profile-page,
+.post-list-page,
+.post-page {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 40px;
+}
+
+.user-container {
+  display: flex;
+  align-items: center;
+  padding: 25px;
+  gap: 25px;
+  border-radius: 10px;
+  border: 2px dotted #000;
+}
+
+.user-photo {
+  border: 2px solid #000;
+}
+
+.user-infos {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 20px;
+  gap: 10px;
+  align-items: center;
+  border: 2px solid #000;
+  cursor: pointer;
+  background: #eee;
+}
+
+.user-name {
+  font-size: 26px;
+}
+
+.user-post-counter {
+  font-size: 18px;
+}
+
+.user-bio,
+.post-item {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  gap: 25px;
+  border-radius: 10px;
+  border: 2px dotted #000;
+  background: #eee;
+}
+
+.post-item,
+.post-card {
+  cursor: pointer;
+  background: #eee;
+  padding: 25px;
+  gap: 25px;
+  border-radius: 10px;
+  border: 2px dotted #000;
+}
+
+.post-card-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-counters {
+  align-self: flex-end;
+}
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.all-posts-btn {
+  width: 170px;
+  height: 50px;
+  cursor: pointer;
+  align-self: center;
+  background: inherit;
+  font-size: 18px;
+}
+
+.single-post {
+  padding: 15px;
+  background: #eee;
+}
+
+.post-top {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
