@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
   def create
     if params[:title].blank? || params[:text].blank?
-      flash[:error] = "Title and text are required"
+      flash[:error] = 'Title and text are required'
       redirect_back(fallback_location: root_path)
       return
     end
