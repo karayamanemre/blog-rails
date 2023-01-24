@@ -18,7 +18,9 @@ img {
 }
 
 .user-list-page,
-.user-profile-page {
+.user-profile-page,
+.post-list-page,
+.post-page {
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -30,7 +32,6 @@ img {
   align-items: center;
   padding: 25px;
   gap: 25px;
-  cursor: pointer;
   border-radius: 10px;
   border: 2px dotted #000;
 }
@@ -47,6 +48,8 @@ img {
   gap: 10px;
   align-items: center;
   border: 2px solid #000;
+  cursor: pointer;
+  background: #eee;
 }
 
 .user-name {
@@ -65,10 +68,34 @@ img {
   gap: 25px;
   border-radius: 10px;
   border: 2px dotted #000;
+  background: #eee;
+}
+
+.post-item,
+.post-card {
+  cursor: pointer;
+  background: #eee;
+  padding: 25px;
+  gap: 25px;
+  border-radius: 10px;
+  border: 2px dotted #000;
+}
+
+.post-card-top {
+  display: flex;
+  flex-direction: column;
 }
 
 .post-counters {
   align-self: flex-end;
+}
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #ddd;
+  border-size: 50%;
+  padding: 15px 0;
 }
 
 .all-posts-btn {
@@ -78,4 +105,21 @@ img {
   align-self: center;
   background: inherit;
   font-size: 18px;
+}
+
+.single-post {
+  padding: 15px;
+  background: #eee;
+}
+
+.post-top {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -1,10 +1,10 @@
 <section class="user-list-page">
   <% @users.each do |user| %>
-    <div class="user-container" onclick="window.location.href='/users/<%= user.id %>/'">
+    <div class="user-container">
       <img class="user-photo" src="<%= user.Photo %>">
-      <div class= "user-infos">
+      <div class= "user-infos" onclick="window.location.href='/users/<%= user.id %>/'">
         <p class="user-name"><%= user.Name %></p>
-        <p class="user-post-counter">Number of posts: <%= user.posts_counter %></p>
+        <p class="user-post-counter">Number of posts: <%= user.posts_counter || 0 %></p>
       </div>
     </div>
   <% end %>

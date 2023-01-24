@@ -1,9 +1,9 @@
 <section class="user-profile-page">
   <div class="user-container">
     <img class="user-photo" src="<%= @user.Photo %>">
-    <div class= "user-infos">
+    <div class= "user-infos" onclick="window.location.href='/users/<%= @user.id %>/'">
       <p class="user-name"><%= @user.Name %></p>
-      <p class="user-post-counter">Number of posts: <%= @user.posts_counter %></p>
+      <p class="user-post-counter">Number of posts: <%= @user.posts_counter || 0 %></p>
     </div>
   </div>
   <div class="user-bio">
@@ -13,7 +13,7 @@
     </p>
   </div>
   <%@user.recent_3_posts.each do |post| %>
-  <div class="post-item">
+  <div class="post-item" onclick="window.location.href='/users/<%= @user.id %>/posts/<%= post.id %>'">
     <h2 class="post-title"><%=post.Title%></h2>
     <p class="post-text"><%=post.Text%></p>
     <p class="post-counters">Comments: <%=post.comments_counter || 0 %>, Likes: <%=post.likes_counter || 0 %></p>

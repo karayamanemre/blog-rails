@@ -1,1 +1,31 @@
-<h1>All posts from a specific user</h1>
+<section class='post-list-page'>
+  <div class="user-container">
+    <img class="user-photo" src="<%= @user.Photo %>">
+    <div class= "user-infos" onclick="window.location.href='/users/<%= @user.id %>/'">
+      <p class="user-name"><%= @user.Name %></p>
+      <p class="user-post-counter">Number of posts: <%= @user.posts_counter || 0 %></p>
+    </div>
+  </div>
+  <% if @user_posts.empty? %>
+   <p>No posts to show.</p>
+  <% end %>
+  <% @user_posts.each do |post| %>
+  <div class="post-card" onclick="window.location.href='/users/<%= @user.id %>/posts/<%= post.id %>'">
+    <div class='post-card-top'>
+      <h2 class="post-title"><%=post.Title%></h2>
+      <p class="post-text"><%=post.Text%></p>
+      <p class="post-counters">Comments: <%=post.comments_counter || 0 %>, Likes: <%=post.likes_counter || 0 %></p>
+    </div> 
+    <div class="comments-container">
+      <h3>Comments</h3>
+      <% if post.comments.any? %>
+        <% post.recent_5_comments.each do |comment| %>
+        <i><%= comment.author.Name %>: <%= comment.Text %></i>
+      <% end %>
+      <% else %>
+        <p>No comments yet.</p>
+      <% end %>
+    </div>
+  </div>
+  <%end%>
+</section>
