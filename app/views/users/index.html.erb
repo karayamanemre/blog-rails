@@ -1,7 +1,7 @@
 <section class="user-list-page">
-  <% if no_users?(@users) %>
+<% if no_users?(@users) %>
     <p>No users to show.</p>
-  <% else %>
+<% else %>
   <% @users.each do |user| %>
     <div class="user-container">
       <img class="user-photo" src="<%= user.Photo %>">
@@ -11,4 +11,5 @@
       </div>
     </div>
   <% end %>
+<% end %>
 </section>
