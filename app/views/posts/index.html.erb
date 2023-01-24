@@ -6,7 +6,7 @@
       <p class="user-post-counter">Number of posts: <%= @user.posts_counter || 0 %></p>
     </div>
   </div>
-  <% if @user_posts.empty? %>
+  <% if no_posts?(@user_posts) %>
    <p>No posts to show.</p>
   <% end %>
   <% @user_posts.each do |post| %>
@@ -18,12 +18,12 @@
     </div> 
     <div class="comments-container">
       <h3>Comments</h3>
-      <% if post.comments.any? %>
+      <% unless any_comments?(post) %>
+        <p>No comments yet.</p>
+      <% else %>
         <% post.recent_5_comments.each do |comment| %>
         <i><%= comment.author.Name %>: <%= comment.Text %></i>
-      <% end %>
-      <% else %>
-        <p>No comments yet.</p>
+        <% end %>
       <% end %>
     </div>
   </div>
