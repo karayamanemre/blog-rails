@@ -7,15 +7,15 @@
     </div>
   </div>
   <div class="user-bio">
-    <h2 class="bio-title">Bio</h2>
-    <p class="bio-info"><%=@user.Bio%> <br>
+    <h2>Bio</h2>
+    <p><%=@user.Bio%> <br>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, ligula ac accumsan posuere, est dolor posuere orci, nec iaculis neque lectus ut orci. Quisque sodales dui et rutrum egestas. Vivamus commodo, urna ut vehicula malesuada, sem elit mollis erat, ut placerat felis elit vitae purus. Praesent fringilla nulla vitae.</p>
     </p>
   </div>
   <%@user.recent_3_posts.each do |post| %>
   <div class="post-item" onclick="window.location.href='/users/<%= @user.id %>/posts/<%= post.id %>'">
-    <h2 class="post-title"><%=post.Title%></h2>
-    <p class="post-text"><%=post.Text%></p>
+    <h2><%=post.Title%></h2>
+    <p><%=post.Text%></p>
     <p class="post-counters">Comments: <%=post.comments_counter || 0 %>, Likes: <%=post.likes_counter || 0 %></p>
   </div>
   <%end%>

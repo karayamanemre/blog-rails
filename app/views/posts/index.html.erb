@@ -12,8 +12,8 @@
   <% @user_posts.each do |post| %>
   <div class="post-card" onclick="window.location.href='/users/<%= @user.id %>/posts/<%= post.id %>'">
     <div class='post-card-top'>
-      <h2 class="post-title"><%=post.Title%></h2>
-      <p class="post-text"><%=post.Text%></p>
+      <h2><%=post.Title%></h2>
+      <p><%=post.Text%></p>
       <p class="post-counters">Comments: <%=post.comments_counter || 0 %>, Likes: <%=post.likes_counter || 0 %></p>
     </div> 
     <div class="comments-container">
