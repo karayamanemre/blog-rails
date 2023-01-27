@@ -1,5 +1,5 @@
 <section class="user-profile-page">
-  <%= link_to "Back to Homepage", root_path, class: "btn" %>
+  <button onclick="window.location.href='/'" class="home-btn btn">Back to Home</button>
   <div class="user-container">
     <img class="user-photo" src="<%= @user.Photo %>">
     <div class= "user-infos" onclick="window.location.href='/users/<%= @user.id %>/'">

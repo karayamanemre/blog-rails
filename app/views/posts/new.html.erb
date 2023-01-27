@@ -1,5 +1,5 @@
 <section class='post-form-page'>
-  <%= link_to "Back to Homepage", root_path, class: "btn" %>
+  <button onclick="window.location.href='/'" class="home-btn btn">Back to Home</button>
   <h2>Create a Post</h2>
   <%= form_with model: @comment do |form| %>
     <div class='post-form'>
