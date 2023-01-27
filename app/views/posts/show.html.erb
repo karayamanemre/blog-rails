@@ -14,7 +14,7 @@
       <% unless any_comments?(@post) %>
         <p>No comments yet.</p>
       <% else %>
-        <% @post.recent_5_comments.each do |comment| %>
+        <% @post.comments.each do |comment| %>
         <i><%= comment.author.Name %>: <%= comment.Text %></i>
         <% end %>
       <% end %>
