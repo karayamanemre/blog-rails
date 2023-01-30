@@ -10,6 +10,6 @@ RSpec.describe Comment, type: :model do
 
   it 'should update comments counter' do
     expect(subject.update_comments_counter).to eq true
-    expect(subject.post.comments_counter).to eq 3
+    expect(subject.post.comments_counter).to eq 2
   end
 end

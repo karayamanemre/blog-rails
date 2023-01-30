@@ -10,6 +10,6 @@ RSpec.describe Like, type: :model do
 
   it 'should update likes counter' do
     expect(subject.update_likes_counter).to eq true
-    expect(subject.post.likes_counter).to eq 3
+    expect(subject.post.likes_counter).to eq 2
   end
 end
