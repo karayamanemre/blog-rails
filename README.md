@@ -105,6 +105,17 @@ In order to run this project you need: Ruby installed on your pc
 - Twitter: [@KarayamanEmre](https://twitter.com/KarayamanEmre)
 - LinkedIn: [Emre Karayaman](https://www.linkedin.com/in/emre-karayaman-a7b45b243/)
 
+👤 **Kenechuwkwu Agagwu**
+
+- GitHub: [kene-creator](https://github.com/kene-creator)
+- LinkedIn: [Kene Agagwu](https://www.linkedin.com/in/kenechukwu-agagwu)
+- Twitter: [Kene](https://twitter.com/kay_yung1)
+
+👤 **Natanim Abesha**
+
+- GitHub: [@githubhandle](https://github.com/NatanimA)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/natanim-abesha)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
