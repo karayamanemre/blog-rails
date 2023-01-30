@@ -20,7 +20,7 @@ class PostsController < ApplicationController
       redirect_back(fallback_location: root_path)
       return
     end
-    @post = Post.new(Title: params[:title], Text: params[:text], author_id: current_user.id)
+    @post = Post.new(title: params[:title], text: params[:text], author_id: current_user.id)
     if @post.save
       redirect_to post_path(@post)
     else

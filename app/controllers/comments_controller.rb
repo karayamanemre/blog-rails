@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(post_id: params[:post_id], author_id: current_user.id, Text: params[:text])
+    @comment = Comment.new(post_id: params[:post_id], author_id: current_user.id, text: params[:text])
     if @comment.save
       @comment.update_comments_counter
       redirect_to post_path(params[:post_id])

@@ -1,22 +1,22 @@
 <section class="user-profile-page">
   <button onclick="window.location.href='/'" class="home-btn btn">Back to Home</button>
   <div class="user-container">
-    <img class="user-photo" src="<%= @user.Photo %>">
+    <img class="user-photo" src="<%= @user.photo %>">
     <div class= "user-infos" onclick="window.location.href='/users/<%= @user.id %>/'">
-      <p class="user-name"><%= @user.Name %></p>
+      <p class="user-name"><%= @user.name %></p>
       <p class="user-post-counter">Number of posts: <%= @user.posts_counter || 0 %></p>
     </div>
   </div>
   <div class="user-bio">
     <h2>Bio</h2>
-    <p><%=@user.Bio%> <br>
+    <p><%=@user.bio%> <br>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, ligula ac accumsan posuere, est dolor posuere orci, nec iaculis neque lectus ut orci. Quisque sodales dui et rutrum egestas. Vivamus commodo, urna ut vehicula malesuada, sem elit mollis erat, ut placerat felis elit vitae purus. Praesent fringilla nulla vitae.</p>
     </p>
   </div>
   <%@user.recent_3_posts.each do |post| %>
   <div class="post-item" onclick="window.location.href='/users/<%= @user.id %>/posts/<%= post.id %>'">
-    <h2><%=post.Title%></h2>
-    <p><%=post.Text%></p>
+    <h2><%=post.title%></h2>
+    <p><%=post.text%></p>
     <p class="post-counters">Comments: <%=post.comments_counter || 0 %>, Likes: <%=post.likes_counter || 0 %></p>
   </div>
   <%end%>

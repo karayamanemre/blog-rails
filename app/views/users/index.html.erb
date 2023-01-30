@@ -4,9 +4,9 @@
 <% else %>
   <% @users.each do |user| %>
     <div class="user-container">
-      <img class="user-photo" src="<%= user.Photo %>">
+      <img class="user-photo" src="<%= user.photo %>">
       <div class= "user-infos" onclick="window.location.href='/users/<%= user.id %>/'">
-        <button class="user-name"><%= user.Name %></button>
+        <button class="user-name"><%= user.name %></button>
         <p class="user-post-counter">Number of posts: <%= user.posts_counter || 0 %></p>
       </div>
     </div>
