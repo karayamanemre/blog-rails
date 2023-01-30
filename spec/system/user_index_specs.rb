@@ -4,9 +4,9 @@ RSpec.describe 'visit the user home page', type: :system do
   before do
     @user1 = User.create(id: 1, Name: 'Tom', Photo: 'https://randomuser.me/api/portraits/men/13.jpg', Bio: 'Teacher.', posts_counter: 0)
     @user2 = User.create(id: 2, Name: 'Lilly', Photo: 'https://randomuser.me/api/portraits/women/21.jpg', Bio: 'Barista.',posts_counter: 0)
-    @post1 = Post.create(author: @user1, Title: 'My first post.', Text: 'Pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus', comments_counter: 0, likes_counter: 0)
-    @post2 = Post.create(author: @user2, Title: 'My second post.', Text: 'Congue eu consequat ac felis donec et odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus', comments_counter: 0, likes_counter: 0)
-    @post3 = Post.create(author: @user1, Title: 'My third post.', Text: 'metus vulputate eu scelerisque felis imperdiet proinr libero', comments_counter: 0, likes_counter: 0)
+    @post1 = Post.create(author: @user1, Title: 'My first post.', Text: 'My post description.', comments_counter: 0, likes_counter: 0)
+    @post2 = Post.create(author: @user2, Title: 'My second post.', Text: 'My post description.', comments_counter: 0, likes_counter: 0)
+    @post3 = Post.create(author: @user1, Title: 'My third post.', Text: 'My post description.', comments_counter: 0, likes_counter: 0)
     Comment.create(post: @post1, author: @user2, Text: 'Good boy!')
     Comment.create(post: @post2, author: @user1, Text: 'Good girl!')
   end
