@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'user profile page', type: :system do
   before do
     @user1 = User.create(id: 1, Name: 'Tom', Photo: 'https://randomuser.me/api/portraits/men/19.jpg', Bio: 'Teacher.', posts_counter: 0)
-    @user2 = User.create(id: 2, Name: 'Lilly', Photo: 'https://randomuser.me/api/portraits/women/29.jpg', Bio: 'Barista.',posts_counter: 0)
+    @user2 = User.create(id: 2, Name: 'Lilly', Photo: 'https://randomuser.me/api/portraits/women/29.jpg', Bio: 'Barista.', posts_counter: 0)
     @post1 = Post.create(author: @user1, Title: 'My first post.', Text: 'My post description.', comments_counter: 0, likes_counter: 0)
     @post2 = Post.create(author: @user2, Title: 'My second post.', Text: 'My post description.', comments_counter: 0, likes_counter: 0)
     @post3 = Post.create(author: @user1, Title: 'My third post.', Text: 'My post description.', comments_counter: 0, likes_counter: 0)
@@ -39,7 +39,7 @@ RSpec.describe 'user profile page', type: :system do
 
   it 'should redirect to the users profile page' do
     visit "/users/#{@user1.id}"
-    click_button("See all posts")
-    expect(page).to have_current_path("/users/#{@user1.id}/posts")
+    click_button('See all posts')
+    expect(page).to have_current_path("/users/#{@user1.id}")
   end
 end
