@@ -6,7 +6,7 @@
     <div class="user-container">
       <img class="user-photo" src="<%= user.Photo %>">
       <div class= "user-infos" onclick="window.location.href='/users/<%= user.id %>/'">
-        <p class="user-name"><%= user.Name %></p>
+        <button class="user-name"><%= user.Name %></button>
         <p class="user-post-counter">Number of posts: <%= user.posts_counter || 0 %></p>
       </div>
     </div>
