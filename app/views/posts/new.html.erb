@@ -1,7 +1,7 @@
 <section class='post-form-page'>
   <button onclick="window.location.href='/'" class="home-btn btn">Back to Home</button>
   <h2>Create a Post</h2>
-  <%= form_with model: @comment do |form| %>
+  <%= form_with model: @post, url: posts_new_path do |form| %>
     <div class='post-form'>
       <%= form.label :title %>
       <%= form.text_field :title, class: "form-control" %>
