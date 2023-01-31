@@ -16,15 +16,18 @@
         <p>
           User Logged in: <%= current_user.name.capitalize %>
         </p>
+        <button class='btn'>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+        </button>
+        <button class='btn'>
+          <%= link_to "Change Password", edit_user_password_path %>
+        </button>
+        <button onclick="window.location.href='/'" class="home-btn btn">Back to Home</button>
       <% else %>
-      <button class='btn'>
-        <%= link_to "Sign In", new_user_session_path %>
-      </button >
       <button class='btn'>
         <%= link_to "Sign Up", new_user_registration_path %>
       </button>
       <% end %>
-      <button onclick="window.location.href='/'" class="home-btn btn">Back to Home</button>
     </header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
