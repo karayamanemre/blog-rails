@@ -2,11 +2,11 @@
 <html>
   <head>
     <title>BlogRails</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -17,20 +17,20 @@
           User Logged in: <%= current_user.name.capitalize %>
         </p>
         <button class='btn'>
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
         </button>
         <button class='btn'>
-          <%= link_to "Change Password", edit_user_password_path %>
+          <%= link_to 'Change Password', edit_user_password_path %>
         </button>
-        <button onclick="window.location.href='/'" class="home-btn btn">Back to Home</button>
+        <button onclick='window.location.href='/'' class='home-btn btn'>Back to Home</button>
       <% else %>
       <button class='btn'>
-        <%= link_to "Sign Up", new_user_registration_path %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
       </button>
       <% end %>
     </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class='notice'><%= notice %></p>
+    <p class='alert'><%= alert %></p>
     <%= yield %>
   </body>
 </html>
