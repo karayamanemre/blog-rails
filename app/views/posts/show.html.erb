@@ -1,14 +1,22 @@
 <section class='post-page'>
   <div class='single-post'>
-    <div class="post-top">
-      <div class="post-header">
-        <h2><%= @post.title %> <i>by</i> <%= @post.author.name %></h2>
-        <p>Comments: <%= @post.comments_counter || 0 %> Likes: <%= @post.likes_counter || 0 %></p>
+    <div class='post-top'>
+      <div class='post-header'>
+        <h2>
+          <%= @post.title %> <i>by</i> <%= @post.author.name %>
+        </h2>
+        <p>
+          Comments: <%= @post.comments_counter || 0 %>
+          Likes: <%= @post.likes_counter || 0 %>
+        </p>
       </div>
-      <p><%= @post.text%> <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, ligula ac accumsan posuere, est dolor posuere orci, nec iaculis neque lectus ut orci. Quisque sodales dui et rutrum egestas. Vivamus commodo, urna ut vehicula malesuada, sem elit mollis erat, ut placerat felis elit vitae purus. Praesent fringilla nulla vitae.</p>
-  </p>
+      <p><%= @post.text%><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, ligula ac accumsan posuere, est dolor posuere orci, nec iaculis neque lectus ut orci. Quisque sodales dui et rutrum egestas. Vivamus commodo, urna ut vehicula malesuada, sem elit mollis erat, ut placerat felis elit vitae purus. Praesent fringilla nulla vitae.</p>
+      </p>
+      <% if can? :delete, @post %>
+        <%= link_to 'Delete Post', @user_post_path, method: :delete , class: 'btn' %>
+      <% end %>
     </div>
-    <div class="comments-container">
+    <div class='comments-container'>
       <h3>Comments</h3>
       <% unless any_comments?(@post) %>
         <p>No comments yet.</p>
@@ -21,20 +29,20 @@
     <div>
       <h3>Add a comment</h3>
       <%= form_with model: @comment, url: comments_new_path do |form| %>
-        <div  class="comment-form">
+        <div  class='comment-form'>
           <%= form.text_area :text%>
           <%= form.hidden_field :author_id, value: @post.author.id %>
           <%= form.hidden_field :post_id, value: @post.id %>
-          <%= form.submit "Post a Comment", class: "btn btn-primary" %>
+          <%= form.submit 'Post a Comment', class: 'btn btn-primary' %>
         </div> 
       <% end %>
     </div>
     <div>
       <h3>Like the post</h3>
       <%= form_with model: @like, url: likes_new_path do |form| %>
-        <div class="like-form">
+        <div class='like-form'>
           <%= form.hidden_field :post_id, value: @post.id %>
-          <%= form.submit "Give a Like", class: "btn btn-primary" %>
+          <%= form.submit 'Give a Like', class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>
