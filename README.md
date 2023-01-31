@@ -120,6 +120,10 @@ In order to run this project you need: Ruby installed on your pc
 
 ## 🔭 Future Features <a name="future-features"></a>
 
+- Creating posts with logged user.
+- Editing posts.
+- NOT liking posts.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🤝 Contributing <a name="contributing"></a>

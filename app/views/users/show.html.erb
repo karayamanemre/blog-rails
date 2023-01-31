@@ -1,5 +1,4 @@
 <section class="user-profile-page">
-  <button onclick="window.location.href='/'" class="home-btn btn">Back to Home</button>
   <div class="user-container">
     <img class="user-photo" src="<%= @user.photo %>">
     <div class= "user-infos" onclick="window.location.href='/users/<%= @user.id %>/'">
@@ -20,5 +19,5 @@
     <p class="post-counters">Comments: <%=post.comments_counter || 0 %>, Likes: <%=post.likes_counter || 0 %></p>
   </div>
   <%end%>
-  <button class="all-posts-btn"><%= link_to "See all posts", "/users/#{@user.id}/posts"%></button>
+  <button class="btn"><%= link_to "See all posts", "/users/#{@user.id}/posts"%></button>
 </section>
