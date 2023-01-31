@@ -10,4 +10,7 @@ class User < ApplicationRecord
   def recent_3_posts
     posts.order(created_at: :desc).limit(3)
   end
+
+  ROLES = %i[admin default].freeze
+  
 end
