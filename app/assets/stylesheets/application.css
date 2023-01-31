@@ -192,4 +192,8 @@ input {
   flex-direction: column;
   gap: 10px;
 }
+
+.bg_black_200 {
+  background-color: #121212;
+}
 /* stylelint-enable */
