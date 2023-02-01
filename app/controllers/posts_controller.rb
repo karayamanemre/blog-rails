@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
-    @user = User.includes(:posts, :comments).find(params[:id])
+    @user = User.includes(:posts, :comments).find(params[:user_id])
     @user_posts = @user.posts.includes(:author, :comments, :likes).all
     @comments = Comment.all
   end
@@ -27,5 +29,11 @@ class PostsController < ApplicationController
       flash[:error] = 'There is an error'
       redirect_back(fallback_location: root_path)
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to user_path(current_user)
   end
 end
