@@ -3,15 +3,14 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  # Defines the root path route ('/')
   root 'users#index'
   resources :users do
-    resources :posts
-  end
-  resources :posts do
+    resources :posts do
+      delete :destroy, on: :member
       resources :likes
+      resources :comments do
+        delete :destroy, on: :member
+      end
     end
-  resources :posts do
-    resources :comments
   end
 end
