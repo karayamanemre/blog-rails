@@ -1,11 +1,30 @@
+*= require font-awesome;
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
-  font-family: Courier, sans-serif;
   box-sizing: border-box;
   text-align: center;
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+}
+
+button {
+  width: auto;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+button:hover {
+  background: #ddd;
 }
 
 a {
@@ -23,17 +42,16 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 25px;
   padding: 10px 0;
-  border-bottom: 2px solid #000;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
+  border-radius: 10px;
 }
 
-h3 {
-  padding: 10px 0;
-}
-
-.home-btn {
-  width: 70px;
+.user,
+.no-user {
+  font-size: 18px;
 }
 
 .user-list-page,
@@ -52,69 +70,65 @@ form {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 5px;
-  padding: 15px;
+  gap: 10px;
+  padding: 25px;
 }
 
 .user-container {
+  width: 500px;
+  height: 90px;
   display: flex;
   align-items: center;
-  padding: 25px;
-  gap: 25px;
+  justify-content: space-around;
+  padding: 10px;
+  cursor: pointer;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px,
+  box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px,
     rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
 }
 
 .user-photo {
+  height: 75px;
+  width: 75px;
   border: 2px solid #000;
 }
 
 .user-infos {
   display: flex;
   justify-content: space-around;
-  width: 100%;
   padding: 20px;
   gap: 10px;
   align-items: center;
-  border: 2px solid #000;
   cursor: pointer;
-  background: #eee;
   transition: 0.5s;
-}
-
-.user-infos:hover,
-.post-item:hover,
-.post-card:hover {
-  background: #bbb;
-}
-
-.user-name {
-  font-size: 26px;
-}
-
-.user-post-counter {
   font-size: 18px;
 }
 
 .user-bio,
 .post-item {
+  width: 500px;
   display: flex;
   flex-direction: column;
-  padding: 25px;
-  gap: 25px;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 15px;
   border-radius: 10px;
   background: #eee;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 4px,
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.bio-text {
+  text-align: justify;
+  text-align-last: justify;
 }
 
 .post-item,
 .post-card {
+  width: 500px;
   cursor: pointer;
   background: #eee;
-  padding: 25px;
-  gap: 25px;
+  padding: 5px 15px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
@@ -137,15 +151,6 @@ form {
   padding: 15px 0;
 }
 
-.btn {
-  width: 100px;
-  height: 50px;
-  cursor: pointer;
-  align-self: center;
-  background: inherit;
-  font-size: 14px;
-}
-
 .single-post {
   padding: 15px;
   background: #eee;
@@ -163,6 +168,10 @@ form {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.delete-btn:hover {
+  background: #ff0000;
 }
 
 .post-form {

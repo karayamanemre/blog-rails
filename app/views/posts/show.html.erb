@@ -13,7 +13,10 @@
       <p><%= @post.text%><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, ligula ac accumsan posuere, est dolor posuere orci, nec iaculis neque lectus ut orci. Quisque sodales dui et rutrum egestas. Vivamus commodo, urna ut vehicula malesuada, sem elit mollis erat, ut placerat felis elit vitae purus. Praesent fringilla nulla vitae.</p>
       </p>
       <% if can? :delete, @post %>
-        <%= link_to 'Delete Post', user_post_path, data: { turbo_method: :delete } %>
+        <button class="delete-btn">
+          <i class="fas fa-trash-alt"></i>
+          <%= link_to 'Delete Post', user_post_path, data: { turbo_method: :delete } %>
+        </button>
       <% end %>
     </div>
     <div class='comments-container'>
@@ -45,7 +48,7 @@
       <%= form_with model: @like, url: user_post_likes_path(@post.author, @post, @like) do |form| %>
         <div class='like-form'>
           <%= form.hidden_field :post_id, value: @post.id %>
-          <%= form.submit 'Give a Like', class: 'btn btn-primary' %>
+          <%= form.submit '<i class="fas fa-heart"></i>', class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>

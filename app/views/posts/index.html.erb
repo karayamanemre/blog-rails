@@ -1,9 +1,10 @@
 <section class='post-list-page'>
   <div class="user-container">
     <img class="user-photo" src="<%= @user.photo %>">
-    <div class= "user-infos" onclick="window.location.href='/users/<%= @user.id %>/'">
-      <p class="user-name"><%= @user.name %></p>
-      <p class="user-post-counter">Number of posts: <%= @user.posts_counter || 0 %></p>
+    <div class="user-infos">
+      <p>User name: <%= @user.name %></p>
+      <span>|</span>
+      <p>Number of posts: <%= @user.posts_counter || 0 %></p>
     </div>
   </div>
   <% if no_posts?(@user_posts) %>

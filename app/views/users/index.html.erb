@@ -1,13 +1,15 @@
 <section class="user-list-page">
 <% if no_users?(@users) %>
-    <p>No users to show.</p>
+    <p class='no-user'>No users to show.</p>
 <% else %>
   <% @users.each do |user| %>
-    <div class="user-container">
+    <div class="user-container" onclick="window.location.href='/users/<%= user.id %>/'">
       <img class="user-photo" src="<%= user.photo %>">
-      <div class= "user-infos" onclick="window.location.href='/users/<%= user.id %>/'">
-        <button class="user-name"><%= user.name %></button>
-        <p class="user-post-counter">Number of posts: <%= user.posts_counter || 0 %></p>
+      <div class="user-infos">
+        <p>User name: <%= user.name %></p>
+        <span>|</span>
+        <p>Number of posts: <%= user.posts_counter || 0 %>
+        </p>
       </div>
     </div>
   <% end %>

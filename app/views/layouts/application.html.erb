@@ -5,7 +5,8 @@
     <meta name='viewport' content='width=device-width,initial-scale=1'>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
     <%= javascript_importmap_tags %>
   </head>
@@ -13,16 +14,19 @@
   <body>
     <header>
       <% if user_signed_in? %>
-        <p>
-          Logged User: <%= current_user.name.capitalize %> (<%= current_user.role =%>)
+        <p class='user'>
+          <i class="fas fa-user"></i>
+          <%= current_user.name.capitalize %> (<%= current_user.role =%>)
         </p>
         <button class='btn'>
+          <i class="fas fa-sign-out-alt"></i>
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
         </button>
         <button class='btn'>
+          <i class="fas fa-user-edit"></i>
           <%= link_to 'Change Password', edit_user_registration_path %>
         </button>
-        <button onclick='window.location.href="/"' class='home-btn btn'>Back to Home</button>
+        <button onclick='window.location.href="/"' class='home-btn btn'><i class="fas fa-home"></i> Back to Home</button>
       <% else %>
       <button class='btn'>
         <%= link_to 'Sign Up', new_user_registration_path %>
