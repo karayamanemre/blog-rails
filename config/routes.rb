@@ -5,12 +5,9 @@ Rails.application.routes.draw do
 
   root 'users#index'
   resources :users do
-    resources :posts do
-      delete :destroy, on: :member
-      resources :likes
-      resources :comments do
-        delete :destroy, on: :member
-      end
+    resources :posts, only: [:index, :show, :new, :create, :destroy] do
+      resources :comments, only: [:new, :create, :destroy]
+      resources :likes, only: [:create]
     end
   end
 end
