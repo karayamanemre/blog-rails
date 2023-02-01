@@ -196,4 +196,8 @@ input {
 .bg_black_200 {
   background-color: #121212;
 }
+
+.bg_white {
+  background-color : #fff;
+}
 /* stylelint-enable */
