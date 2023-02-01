@@ -25,6 +25,7 @@ header {
   justify-content: center;
   gap: 5px;
   padding: 10px 0;
+  border-bottom: 2px solid #000;
 }
 
 h3 {
@@ -52,6 +53,7 @@ form {
   justify-content: center;
   text-align: center;
   gap: 5px;
+  padding: 15px;
 }
 
 .user-container {
@@ -191,13 +193,5 @@ input {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-.bg_black_200 {
-  background-color: #121212;
-}
-
-.bg_white {
-  background-color : #fff;
 }
 /* stylelint-enable */
