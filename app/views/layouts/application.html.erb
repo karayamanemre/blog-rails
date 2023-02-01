@@ -10,27 +10,27 @@
     <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
     <header>
       <% if user_signed_in? %>
         <p class='user'>
           <i class="fas fa-user"></i>
-          <%= current_user.name.capitalize %> (<%= current_user.role =%>)
+          <%= current_user.name.capitalize %> 
+          <% if current_user.role == "admin"  %>
+            (<%= current_user.role =%>)
+          <% end %>
         </p>
-        <button class='btn'>
-          <i class="fas fa-sign-out-alt"></i>
-          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-        </button>
-        <button class='btn'>
-          <i class="fas fa-user-edit"></i>
-          <%= link_to 'Change Password', edit_user_registration_path %>
-        </button>
-        <button onclick='window.location.href="/"' class='home-btn btn'><i class="fas fa-home"></i> Back to Home</button>
+        <%= link_to destroy_user_session_path, class:'btn', method: :delete do %>
+          <i class="fas fa-sign-out-alt"></i> Sign Out
+        <% end %>
+        <%= link_to edit_user_registration_path, class:'btn' do %>
+          <i class="fas fa-user-edit"></i> Change Password
+        <% end %>
+        <button onclick='window.location.href="/"' class='btn'><i class="fas fa-home"></i> Home</button>
       <% else %>
-      <button class='btn'>
-        <%= link_to 'Sign Up', new_user_registration_path %>
-      </button>
+        <%= link_to new_user_registration_path, class:'btn' do %>
+          <i class="fas fa-user-plus"></i> Sign Up
+        <% end %>
       <% end %>
     </header>
     <p class='notice'><%= notice %></p>

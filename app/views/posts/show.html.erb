@@ -1,4 +1,7 @@
 <section class='post-page'>
+<button class='btn' onclick="window.location.href='/users/<%= @post.author_id %>/'">
+  <i class="fas fa-chevron-left"></i> Back to User
+</button>
   <div class='single-post'>
     <div class='post-top'>
       <div class='post-header'>
@@ -10,13 +13,12 @@
           Likes: <%= @post.likes_counter || 0 %>
         </p>
       </div>
-      <p><%= @post.text%><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, ligula ac accumsan posuere, est dolor posuere orci, nec iaculis neque lectus ut orci. Quisque sodales dui et rutrum egestas. Vivamus commodo, urna ut vehicula malesuada, sem elit mollis erat, ut placerat felis elit vitae purus. Praesent fringilla nulla vitae.</p>
+      <p class='post-text'><%= @post.text%> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, ligula ac accumsan posuere, est dolor posuere orci, nec iaculis neque lectus ut orci. Quisque sodales dui et rutrum egestas. Vivamus commodo, urna ut vehicula malesuada, sem elit mollis erat, ut placerat felis elit vitae purus. Praesent fringilla nulla vitae.</p>
       </p>
-      <% if can? :delete, @post %>
-        <button class="delete-btn">
-          <i class="fas fa-trash-alt"></i>
-          <%= link_to 'Delete Post', user_post_path, data: { turbo_method: :delete } %>
-        </button>
+      <% if can? :delete, @post %>          
+        <%= link_to  user_post_path, data: { turbo_method: :delete }, class: 'btn delete-btn' do %>
+          <i class="fas fa-trash-alt"></i> Delete Post
+        <% end %>
       <% end %>
     </div>
     <div class='comments-container'>
@@ -25,31 +27,34 @@
         <p>No comments yet.</p>
       <% else %>
         <% @post.comments.each do |comment| %>
-        <i><%= comment.author.name %>: <%= comment.text %></i>
-        <% if can? :delete, comment %>
-          <%= link_to 'Delete Comment', user_post_comment_path(post_id: params[:id], id: comment.id), data: { turbo_method: :delete } %>
-        <% end %>
+          <div>
+            <i><%= comment.author.name %>: <%= comment.text %></i>
+            <% if can? :delete, comment %>
+              <%= link_to user_post_comment_path(post_id: params[:id], id: comment.id), data: { turbo_method: :delete } do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
     </div>
     <div>
-      <h3>Add a comment</h3>
+    <div  class='comment-form'>
       <%= form_with model: @comment, url: user_post_comments_path(@post.author, @post, @comment) do |form| %>
-        <div  class='comment-form'>
-          <%= form.text_area :text%>
-          <%= form.hidden_field :author_id, value: @post.author.id %>
-          <%= form.hidden_field :post_id, value: @post.id %>
-          <%= form.submit 'Post a Comment', class: 'btn btn-primary' %>
-        </div> 
+        <%= form.text_area :text%>
+        <%= form.hidden_field :author_id, value: @post.author.id %>
+        <%= form.hidden_field :post_id, value: @post.id %>
+        <%= button_tag type: 'submit', class:'btn' do %>
+          <i class="fas fa-comment-dots"></i> Post a Comment
+        <% end %>
       <% end %>
     </div>
-    <div>
-      <h3>Like the post</h3>
+    <div class='like-form'>
       <%= form_with model: @like, url: user_post_likes_path(@post.author, @post, @like) do |form| %>
-        <div class='like-form'>
-          <%= form.hidden_field :post_id, value: @post.id %>
-          <%= form.submit '<i class="fas fa-heart"></i>', class: 'btn btn-primary' %>
-        </div>
+        <%= form.hidden_field :post_id, value: @post.id %>
+        <%= button_tag type: 'submit', class:'btn' do %>
+          <i class="fas fa-heart"></i> Give a Like
+        <% end %>
       <% end %>
     </div>
   </div>

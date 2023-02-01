@@ -11,9 +11,10 @@
 
 html {
   font-family: 'Poppins', sans-serif;
+  text-align: center;
 }
 
-button {
+.btn {
   width: auto;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
@@ -21,9 +22,10 @@ button {
   background: #fff;
   border-radius: 10px;
   padding: 5px;
+  border: 2px solid #000;
 }
 
-button:hover {
+.btn:hover {
   background: #ddd;
 }
 
@@ -39,6 +41,10 @@ img {
 }
 
 header {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,7 +52,18 @@ header {
   padding: 10px 0;
   box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px,
     rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
-  border-radius: 10px;
+  background: #fff;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.actions {
+  margin-top: 10px;
 }
 
 .user,
@@ -62,9 +79,7 @@ header {
 .edit-user-page,
 .login-page,
 .sign-up-page,
-.reset-password-page,
-.field,
-form {
+.reset-password-page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,6 +87,7 @@ form {
   text-align: center;
   gap: 10px;
   padding: 25px;
+  margin-top: 80px;
 }
 
 .user-container {
@@ -104,7 +120,12 @@ form {
   font-size: 18px;
 }
 
+.post-item {
+  cursor: pointer;
+}
+
 .user-bio,
+.single-post,
 .post-item {
   width: 500px;
   display: flex;
@@ -118,12 +139,12 @@ form {
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-.bio-text {
+.bio-text,
+.post-text {
   text-align: justify;
   text-align-last: justify;
 }
 
-.post-item,
 .post-card {
   width: 500px;
   cursor: pointer;
@@ -145,10 +166,11 @@ form {
 }
 
 .comments-container {
+  width: 90%;
   display: flex;
   flex-direction: column;
-  border-top: 1px solid #ddd;
-  padding: 15px 0;
+  margin: 15px 0;
+  border-top: 1px dashed #456;
 }
 
 .single-post {
@@ -161,13 +183,16 @@ form {
 .post-top {
   display: flex;
   flex-direction: column;
-  gap: 25px;
 }
 
 .post-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.delete-btn {
+  align-self: center;
 }
 
 .delete-btn:hover {
@@ -197,10 +222,14 @@ input {
   height: 30px;
 }
 
-.like-form,
-.comment-form {
+.like-form {
+  margin-top: 5px;
+}
+
+.like-form form,
+.comment-form form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 /* stylelint-enable */
