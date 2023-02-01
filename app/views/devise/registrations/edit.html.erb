@@ -32,12 +32,13 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Update" %>
+      <%= button_tag type: 'submit', class:'btn' do %>
+        <i class="fas fa-edit"></i> Update Info
+      <% end %>
     </div>
   <% end %>
-
-  <h3>Cancel my account</h3>
-
   <p>Unhappy? <%= link_to "Cancel my account", user_path(@user), method: :delete, data: { confirm: "Are you sure?" } %></p>
-  <%= link_to "Back", :back %>
+  <%= link_to :back, class:'btn' do %>
+    <i class="fas fa-chevron-left"></i> Back
+  <% end %>
 </section>
