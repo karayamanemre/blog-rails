@@ -8,11 +8,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new(post_id: params[:post_id], author_id: current_user.id, text: params[:text])
     if @comment.save
       @comment.update_comments_counter
-      redirect_to user_post_path(params[:user_id], params[:post_id])
     else
       flash[:error] = 'There is an error'
-      redirect_to user_post_path(params[:user_id], params[:post_id])
     end
+    redirect_to user_post_path(params[:user_id], params[:post_id])
   end
 
   def destroy
