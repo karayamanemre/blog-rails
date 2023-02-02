@@ -113,8 +113,10 @@ In order to run this project you need: Ruby installed on your pc
 
 👤 **Natanim Abesha**
 
-- GitHub: [@githubhandle](https://github.com/NatanimA)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/natanim-abesha)
+- GitHub: [@NatanimA](https://github.com/NatanimA)
+- LinkedIn: [@natanim-abesha](https://linkedin.com/in/natanim-abesha)
+- Twitter: [@Natanim_](https://twitter.com/Natanim_)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
