@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.create(Name: 'Emre') }
+  subject { User.create(name: 'Emre') }
 
   it 'has many posts' do
     expect(subject).to respond_to(:posts)
@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'validates presence of name' do
-    subject.Name = nil
+    subject.name = nil
     expect(subject).to_not be_valid
   end
 
