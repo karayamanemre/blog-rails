@@ -1,7 +1,9 @@
 class Api::PostsController < Api::ApiController
-  def index
-    @posts = Post.all.where(author_id: params[:user_id])
+  respond_to :json
 
-    render json: @posts
+  def index
+    @user = User.find(params[:user_id])
+    @posts = @user.posts
+    respond_with @posts
   end
 end
