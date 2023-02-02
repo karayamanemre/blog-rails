@@ -1,5 +1,5 @@
 class Api::CommentsController < Api::ApiController
- respond_to :json
+  respond_to :json
 
   def index
     @post = Post.find(params[:post_id])
@@ -9,7 +9,7 @@ class Api::CommentsController < Api::ApiController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.build(content: params[:content], user: current_user)
+    @comment = @post.comments.build(text: params[:text], author_id: current_user)
     if @comment.save
       respond_with @comment
     else
