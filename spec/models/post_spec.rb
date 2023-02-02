@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:user) { User.create(Name: 'Emre') }
-  subject { Post.create(Title: 'Test Title', Text: 'Test Text') }
+  let(:user) { User.create(name: 'Emre') }
+  subject { Post.create(title: 'Test Title', text: 'Test Text') }
 
   it 'belongs to an author' do
-    expect(subject.Title).to eq 'Test Title'
+    expect(subject.title).to eq 'Test Title'
   end
 
   it 'has many comments' do
@@ -17,12 +17,12 @@ RSpec.describe Post, type: :model do
   end
 
   it 'validates presence of title' do
-    subject.Title = nil
+    subject.title = nil
     expect(subject).to_not be_valid
   end
 
   it 'validates maximum length of title' do
-    subject.Title = 'a' * 251
+    subject.title = 'a' * 251
     expect(subject).to_not be_valid
   end
 
