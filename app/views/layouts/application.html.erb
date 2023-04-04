@@ -5,33 +5,40 @@
     <meta name='viewport' content='width=device-width,initial-scale=1'>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <header>
-      <% if user_signed_in? %>
-        <p class='user'>
-          <i class="fas fa-user"></i>
-          <%= current_user.name.capitalize %> 
-          <% if current_user.role == "admin"  %>
-            (<%= current_user.role =%>)
-          <% end %>
-        </p>
-        <%= link_to destroy_user_session_path, class:'btn', method: :delete do %>
-          <i class="fas fa-sign-out-alt"></i> Sign Out
+    <header class="fixed w-full h-14 top-0 bg-white shadow-md z-10">
+      <div class="container mx-auto py-4 px-6 flex justify-between items-center">
+        <a href="/" class="font-bold text-xl">My Blog</a>
+        <% if user_signed_in? %>
+          <div class="flex items-center">
+            <p class='mr-4'>
+              <% current_hour = Time.now.hour %>
+              <% if current_hour >= 5 && current_hour < 12 %>
+                Good morning,
+              <% elsif current_hour >= 12 && current_hour < 18 %>
+                Good afternoon,
+              <% else %>
+                Good evening,
+              <% end %>
+              <%= current_user.name.capitalize %>
+            </p>
+            <% if current_user.role == "admin" %>
+              <p class='mr-4'>(<%= current_user.role %>)</p>
+            <% end %>
+            <%= link_to edit_user_registration_path, class:'btn mr-4' do %>Change Password<% end %>
+            <%= link_to destroy_user_session_path, class:'btn', method: :delete do %>Sign Out<% end %>
+          </div>
+        <% else %>
+          <div>
+            <%= link_to new_user_registration_path, class:'btn mr-4' do %>Sign Up<% end %>
+            <%= link_to new_user_session_path, class:'btn' do %>Sign In<% end %>
+          </div>
         <% end %>
-        <%= link_to edit_user_registration_path, class:'btn' do %>
-          <i class="fas fa-user-edit"></i> Change Password
-        <% end %>
-        <button onclick='window.location.href="/"' class='btn'><i class="fas fa-home"></i> Home</button>
-      <% else %>
-        <%= link_to new_user_registration_path, class:'btn' do %>
-          <i class="fas fa-user-plus"></i> Sign Up
-        <% end %>
-      <% end %>
+      </div>
     </header>
     <p class='notice'><%= notice %></p>
     <p class='alert'><%= alert %></p>

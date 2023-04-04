@@ -1,26 +1,22 @@
-<section class="user-profile-page">
-  <div class="user-container">
-      <img class="user-photo" src="<%= @user.photo %>">
-      <div class="user-infos">
-        <p>User name: <%= @user.name %></p>
-        <span>|</span>
-        <p>Number of posts: <%= @user.posts_counter || 0 %>
-        </p>
-      </div>
+<section class="bg-gray-100 p-6 mt-20 mx-8">
+  <div class="flex gap-8 mb-8 justify-around">
+    <img class="w-20 h-20 object-cover rounded-full" src="<%= @user.photo %>">
+    <div class="flex flex-col items-start justify-center">
+      <p class="text-2xl font-bold"><%= @user.name %></p>
+      <p class="text-gray-500">Number of posts: <%= @user.posts_counter || 0 %></p>
     </div>
-    <h2>User Bio</h2>
-  <div class="user-bio">
-    <p class="bio-text"><%=@user.bio%>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, ligula ac accumsan posuere, est dolor posuere orci, nec iaculis neque lectus ut orci. Quisque sodales dui et rutrum egestas. Vivamus commodo, urna ut vehicula malesuada, sem elit mollis erat, ut placerat felis elit vitae purus. Praesent fringilla nulla vitae.</p>
-    </p>
+    <div class="flex flex-col items-start justify-center">
+      <p class="text-2xl font-bold">Bio</p>
+      <p class="text-gray-500"><%=@user.bio%></p>
+    </div>
   </div>
-  <h2>User Posts</h2>
+  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded my-4"><%= link_to "See all posts", "/users/#{@user.id}/posts"%></button>
+  <h2 class="text-2xl font-bold my-4">Latest Posts</h2>
   <%@user.recent_3_posts.each do |post| %>
-  <div class="post-item" onclick="window.location.href='/users/<%= @user.id %>/posts/<%= post.id %>'">
-    <h2><%=post.title%></h2>
-    <p><%=post.text%></p>
-    <p class="post-counters">Comments: <%=post.comments_counter || 0 %>, Likes: <%=post.likes_counter || 0 %></p>
-  </div>
+    <div class="bg-white p-4 rounded-lg mb-4 cursor-pointer transition duration-500 hover:bg-gray-200" onclick="window.location.href='/users/<%= @user.id %>/posts/<%= post.id %>'">
+      <h2 class="text-lg font-bold mb-2"><%=post.title%></h2>
+      <p><%=post.text%></p>
+      <p class="text-gray-500 text-sm mt-2">Comments: <%=post.comments_counter || 0 %>, Likes: <%=post.likes_counter || 0 %></p>
+    </div>
   <%end%>
-  <button class="btn"><i class="fas fa-angle-double-right"></i> <%= link_to "See all posts", "/users/#{@user.id}/posts"%></button>
 </section>

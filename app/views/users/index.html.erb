@@ -1,17 +1,16 @@
-<section class="user-list-page">
-<% if no_users?(@users) %>
-    <p class='no-user'>No users to show.</p>
-<% else %>
-  <% @users.each do |user| %>
-    <div class="user-container" onclick="window.location.href='/users/<%= user.id %>/'">
-      <img class="user-photo" src="<%= user.photo %>">
-      <div class="user-infos">
-        <p>User name: <%= user.name %></p>
-        <span>|</span>
-        <p>Number of posts: <%= user.posts_counter || 0 %>
-        </p>
+<section class="flex flex-col items-center mt-20">
+  <h1 class="text-2xl font-bold mb-8">Read the latest posts from our users</h1>
+  <% if no_users?(@users) %>
+    <p class="text-lg font-medium">No users to show.</p>
+  <% else %>
+    <% @users.each do |user| %>
+      <div class="flex items-center justify-around m-2 p-4 rounded-xl shadow w-96 cursor-pointer bg-white hover:bg-gray-100 transition duration-300 ease-in-out" onclick="window.location.href='/users/<%= user.id %>/'">
+        <img class="w-16 h-16 object-cover rounded-full" src="<%= user.photo %>">
+        <div class="flex flex-col items-center justify-around w-2/4">
+          <p class="text-lg font-medium">Author: <%= user.name %></p>
+          <p class="text-gray-500">Posts: <%= user.posts_counter || 0 %></p>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
-<% end %>
 </section>
