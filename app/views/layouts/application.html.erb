@@ -14,7 +14,7 @@
         <a href="/" class="font-bold text-xl">My Blog</a>
         <% if user_signed_in? %>
           <div class="flex items-center">
-            <p class='mr-4'>
+            <p class='mr-1'>
               <% current_hour = Time.now.hour %>
               <% if current_hour >= 5 && current_hour < 12 %>
                 Good morning,
@@ -26,7 +26,10 @@
               <%= current_user.name.capitalize %>
             </p>
             <% if current_user.role == "admin" %>
-              <p class='mr-4'>(<%= current_user.role %>)</p>
+              <p class='mr-1'>(<%= current_user.role %>)</p>
+            <% end %>
+            <%= link_to new_user_post_path(user_id: current_user.id), class: 'btn mr-4' do %>
+              New Post
             <% end %>
             <%= link_to edit_user_registration_path, class:'btn mr-4' do %>Change Password<% end %>
             <%= link_to destroy_user_session_path, class:'btn', method: :delete do %>Sign Out<% end %>

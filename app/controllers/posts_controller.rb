@@ -17,14 +17,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    if params[:title].blank? || params[:text].blank?
-      flash[:error] = 'Title and text are required'
-      redirect_back(fallback_location: root_path)
-      return
-    end
-    @post = Post.new(title: params[:post][:title], text: params[:post][:text], author_id: current_user.id)
+    @post = Post.new(post_params)
+    @post.author_id = current_user.id
+
     if @post.save
-      redirect_to post_path(@post)
+      redirect_to user_posts_path
     else
       flash[:error] = 'There is an error'
       redirect_back(fallback_location: root_path)
@@ -35,5 +32,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to user_path(current_user)
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
