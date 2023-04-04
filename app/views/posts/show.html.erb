@@ -1,28 +1,27 @@
-<section class='post-page'>
-<button class='btn' onclick="window.location.href='/users/<%= @post.author_id %>/'">
-  <i class="fas fa-chevron-left"></i> Back to User
-</button>
-  <div class='single-post'>
-    <div class='post-top'>
-      <div class='post-header'>
-        <h2>
+<section class='bg-gray-100 p-6 mt-20 mx-8'>
+  <button class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded' onclick="window.location.href='/users/<%= @post.author_id %>/'">Back to User
+  </button>
+  <div class='flex flex-col gap-8 mb-2 justify-around'>
+    <div class='flex flex-col items-start justify-center'>
+      <div class='text-xl mt-2'>
+        <h2 class="font-bold">
           <%= @post.title %> <i>by</i> <%= @post.author.name %>
         </h2>
-        <p>
+        <p class="text-gray-500 text-sm mt-1">
           Comments: <%= @post.comments_counter || 0 %>
           Likes: <%= @post.likes_counter || 0 %>
         </p>
       </div>
-      <p class='post-text'><%= @post.text%> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, ligula ac accumsan posuere, est dolor posuere orci, nec iaculis neque lectus ut orci. Quisque sodales dui et rutrum egestas. Vivamus commodo, urna ut vehicula malesuada, sem elit mollis erat, ut placerat felis elit vitae purus. Praesent fringilla nulla vitae.</p>
+      <p class='text-lg my-2 p-8 border-x-2 sm:w-2/3'><%= @post.text%> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, ligula ac accumsan posuere, est dolor posuere orci, nec iaculis neque lectus ut orci. Quisque sodales dui et rutrum egestas. Vivamus commodo, urna ut vehicula malesuada, sem elit mollis erat, ut placerat felis elit vitae purus. Praesent fringilla nulla vitae.</p>
       </p>
       <% if can? :delete, @post %>          
         <%= link_to  user_post_path, data: { turbo_method: :delete }, class: 'btn delete-btn' do %>
-          <i class="fas fa-trash-alt"></i> Delete Post
+          Delete Post
         <% end %>
       <% end %>
     </div>
-    <div class='comments-container'>
-      <h3>Comments</h3>
+    <div class='flex flex-col'>
+      <h3 class="text-lg font-bold">Comments</h3>
       <% unless any_comments?(@post) %>
         <p>No comments yet.</p>
       <% else %>
@@ -31,7 +30,7 @@
             <i><%= comment.author.name %>: <%= comment.text %></i>
             <% if can? :delete, comment %>
               <%= link_to user_post_comment_path(post_id: params[:id], id: comment.id), data: { turbo_method: :delete } do %>
-                <i class="fas fa-trash-alt"></i>
+                Delete
               <% end %>
             <% end %>
           </div>
@@ -39,21 +38,21 @@
       <% end %>
     </div>
     <div>
-    <div  class='comment-form'>
-      <%= form_with model: @comment, url: user_post_comments_path(@post.author, @post, @comment) do |form| %>
-        <%= form.text_area :text%>
+    <div>
+      <%= form_with model: @comment, class: "w-96 flex flex-col gap-2", url: user_post_comments_path(@post.author, @post, @comment) do |form| %>
+        <%= form.text_area :text, class: "p-2 rounded-md border-gray-400 focus:outline-none focus:border-blue-400 resize-none" %>
         <%= form.hidden_field :author_id, value: @post.author.id %>
         <%= form.hidden_field :post_id, value: @post.id %>
-        <%= button_tag type: 'submit', class:'btn' do %>
-          <i class="fas fa-comment-dots"></i> Post a Comment
+        <%= button_tag type: 'submit', class:'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' do %>
+        Post a Comment
         <% end %>
       <% end %>
     </div>
     <div class='like-form'>
       <%= form_with model: @like, url: user_post_likes_path(@post.author, @post, @like) do |form| %>
         <%= form.hidden_field :post_id, value: @post.id %>
-        <%= button_tag type: 'submit', class:'btn' do %>
-          <i class="fas fa-heart"></i> Give a Like
+        <%= button_tag type: 'submit', class:'bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-2' do %>
+          Like
         <% end %>
       <% end %>
     </div>

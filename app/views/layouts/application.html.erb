@@ -10,8 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <header class="fixed w-full h-14 top-0 bg-white shadow-md z-10">
-      <div class="container mx-auto py-4 px-6 flex justify-between items-center">
+    <header class="fixed w-full h-14 top-0 bg-white shadow-md z-10 flex justify-between items-center p-8">
         <a href="/" class="font-bold text-xl">My Blog</a>
         <% if user_signed_in? %>
           <div class="flex items-center">
@@ -38,7 +37,6 @@
             <%= link_to new_user_session_path, class:'btn' do %>Sign In<% end %>
           </div>
         <% end %>
-      </div>
     </header>
     <p class='notice'><%= notice %></p>
     <p class='alert'><%= alert %></p>

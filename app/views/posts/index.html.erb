@@ -1,32 +1,33 @@
-<section class='post-list-page'>
-  <div class="user-container">
-    <img class="user-photo" src="<%= @user.photo %>">
-    <div class="user-infos">
-      <p>User name: <%= @user.name %></p>
-      <span>|</span>
-      <p>Number of posts: <%= @user.posts_counter || 0 %></p>
+<section class='bg-gray-100 p-6 mt-20 mx-8'>
+  <div class="flex items-center gap-6">
+    <img class="w-16 h-16 object-cover rounded-full mr-4" src="<%= @user.photo %>">
+    <div class="ml-2">
+      <p class="text-lg font-medium">User name: <%= @user.name %></p>
+      <p class="text-gray-500 text-sm">Number of posts: <%= @user.posts_counter || 0 %></p>
     </div>
   </div>
   <% if no_posts?(@user_posts) %>
-   <p>No posts to show.</p>
+   <p class="text-lg font-medium mt-8">No posts to show.</p>
   <% end %>
   <% @user_posts.includes(:comments).each do |post| %>
-  <div class="post-card" onclick="window.location.href='/users/<%= @user.id %>/posts/<%= post.id %>'">
-    <div class='post-card-top'>
-      <h2><%=post.title%></h2>
-      <p><%=post.text%></p>
-      <p class="post-counters">Comments: <%=post.comments_counter || 0 %>, Likes: <%=post.likes_counter || 0 %></p>
-    </div> 
-    <div class="comments-container">
-      <h3>Comments</h3>
-      <% unless any_comments?(post) %>
-        <p>No comments yet.</p>
-      <% else %>
-        <% post.recent_5_comments.each do |comment| %>
-        <i><%= comment.author.name %>: <%= comment.text %></i>
+    <div class="border rounded-lg hover:bg-gray-300 cursor-pointer my-2" onclick="window.location.href='/users/<%= @user.id %>/posts/<%= post.id %>'">
+      <div class='p-4'>
+        <h2 class='text-xl font-medium'><%=post.title%></h2>
+        <p class='text-gray-500 mt-2'><%=post.text%></p>
+        <p class="text-gray-500 mt-2">Comments: <%=post.comments_counter || 0 %>, Likes: <%=post.likes_counter || 0 %></p>
+      </div> 
+      <div class="bg-gray-200 px-4 py-2">
+        <h3 class='text-lg font-medium'>Comments</h3>
+        <% unless any_comments?(post) %>
+          <p>No comments yet.</p>
+        <% else %>
+          <% post.recent_5_comments.each do |comment| %>
+            <div class='text-gray-500'>
+              <i><%= comment.author.name %>: <%= comment.text %></i>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
-  </div>
   <%end%>
 </section>
